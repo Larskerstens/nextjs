@@ -10,11 +10,12 @@ export default function pokedex({ pokemons }) {
       <ul>
         {pokemons.map((pokemon, index) => (
           <>
-            <li key={index}>
+            <li key={index + 1}>
               <a className="pokemonName">
                 {index + 1}. {pokemon.name}
               </a>
               <img
+                key={index + 1}
                 src={
                   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
                   (index + 1) +
