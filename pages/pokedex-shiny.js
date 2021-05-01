@@ -8,6 +8,9 @@ export default function pokedex({ pokemons }) {
         <title>Pokédex pagina</title>
       </Head>
       <h1>Pokedex</h1>
+      <p>
+        <a href="#test">ga naar test</a>
+      </p>
       <ul>
         {pokemons.map((pokemon, index) => (
           <>
@@ -21,7 +24,7 @@ export default function pokedex({ pokemons }) {
               alt={pokemon.name}
             />
             <Link href={"/pokemonShiny/" + pokemon.name}>
-              <li key={index + 1}>
+              <li key={index + 1} id={index + 1}>
                 <a className="pokemonName">
                   {index + 1}. {pokemon.name}
                 </a>
@@ -30,6 +33,7 @@ export default function pokedex({ pokemons }) {
           </>
         ))}
       </ul>
+      <p id="test">hallo</p>
     </>
   );
 }

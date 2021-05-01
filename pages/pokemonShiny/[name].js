@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function pokemonDetail({ pokemon }) {
   return (
     <>
@@ -11,6 +13,9 @@ export default function pokemonDetail({ pokemon }) {
         }
         alt={pokemon.name}
       />
+      <Link href={"../pokedex-shiny#" + pokemon.id}>
+        <a>go back</a>
+      </Link>
     </>
   );
 }

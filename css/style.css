@@ -18,7 +18,9 @@ h1 {
 p {
   color: darkcyan;
 }
-
+ul {
+  list-style-type: none;
+}
 ul li {
   color: darkgoldenrod;
 }
@@ -28,6 +30,13 @@ img {
   height: 75px;
 }
 
+/*------------------ pokedex ----------------- */
+.pokemonName:hover {
+  cursor: pointer;
+  color: pink;
+  background-color: grey;
+}
+/*------------------ cocktail ----------------- */
 .cocktailName:hover {
   cursor: pointer;
   color: pink;
