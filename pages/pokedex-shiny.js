@@ -16,7 +16,7 @@ export default function pokedex({ pokemons }) {
               </a>
               <img
                 src={
-                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
                   (index + 1) +
                   ".png"
                 }

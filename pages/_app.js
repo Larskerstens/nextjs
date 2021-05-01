@@ -17,6 +17,11 @@ function MyApp({ Component, pageProps }) {
             </Link>
           </li>
           <li>
+            <Link href="/pokedex-shiny">
+              <a title="Ga naar de Pokédex-shiny pagina">Shiny Pokédex</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/cocktail-react">
               <a title="Ga naar de Cocktail-react pagina">Cocktail-react</a>
             </Link>
