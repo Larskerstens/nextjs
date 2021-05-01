@@ -41,6 +41,11 @@ function MyApp({ Component, pageProps }) {
               <a title="Ga naar de Counter pagina">Counter</a>
             </Link>
           </li>
+          <li>
+            <Link href="/car">
+              <a title="Ga naar de Car pagina">Car</a>
+            </Link>
+          </li>
         </ul>
       </nav>
       <Component {...pageProps} />
