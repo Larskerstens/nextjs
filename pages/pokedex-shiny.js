@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function pokedex({ pokemons }) {
   return (
@@ -10,20 +11,22 @@ export default function pokedex({ pokemons }) {
       <ul>
         {pokemons.map((pokemon, index) => (
           <>
-            <li key={index + 1}>
-              <a className="pokemonName">
-                {index + 1}. {pokemon.name}
-              </a>
-              <img
-                key={index + 1}
-                src={
-                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
-                  (index + 1) +
-                  ".png"
-                }
-                alt={pokemon.name}
-              />
-            </li>
+            <img
+              key={index + 1}
+              src={
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
+                (index + 1) +
+                ".png"
+              }
+              alt={pokemon.name}
+            />
+            <Link href={"/pokemonShiny/" + pokemon.name}>
+              <li key={index + 1}>
+                <a className="pokemonName">
+                  {index + 1}. {pokemon.name}
+                </a>
+              </li>
+            </Link>
           </>
         ))}
       </ul>

@@ -11,13 +11,6 @@ export default function pokedex({ pokemons }) {
       <ul>
         {pokemons.map((pokemon, index) => (
           <>
-            <Link href={"/pokemon/" + pokemon.name}>
-              <li key={index + 1}>
-                <a className="pokemonName">
-                  {index + 1}. {pokemon.name}
-                </a>
-              </li>
-            </Link>
             <img
               key={index + 1}
               src={
@@ -27,6 +20,13 @@ export default function pokedex({ pokemons }) {
               }
               alt={pokemon.name}
             />
+            <Link href={"/pokemon/" + pokemon.name}>
+              <li key={index + 1}>
+                <a className="pokemonName">
+                  {index + 1}. {pokemon.name}
+                </a>
+              </li>
+            </Link>
           </>
         ))}
       </ul>
