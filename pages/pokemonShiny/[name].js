@@ -20,7 +20,7 @@ export default function pokemonDetail({ pokemon }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const { name } = context.query;
   const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon-species/" + name
