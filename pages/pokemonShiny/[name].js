@@ -13,14 +13,14 @@ export default function pokemonDetail({ pokemon }) {
         }
         alt={pokemon.name}
       />
-      <Link href={"../pokedex-shiny#" + pokemon.id}>
+      <Link href={"../pokedex-shiny#" + (Number(pokemon.id) - 9)}>
         <a>go back</a>
       </Link>
     </>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { name } = context.query;
   const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon-species/" + name

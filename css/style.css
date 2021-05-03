@@ -1,40 +1,52 @@
+/* 
+bgColor="#a53333"
+color="#1f2832" 
+*/
+
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 a {
   text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  color: #1f2832;
 }
 
 h1 {
   color: #a53333;
 }
 
-p {
-  color: darkcyan;
-}
-ul {
-  list-style-type: none;
-}
-ul li {
-  color: darkgoldenrod;
+#fullpage {
+  min-height: 87vh;
+  padding: 1em;
 }
 
-img {
-  width: 75px;
-  height: 75px;
+/*------------------ Navigation ----------------- */
+#nav a {
+  padding: 0.5em 0.5em !important;
+}
+
+#nav a:hover {
+  border-bottom: 2px solid #749ca1;
+  color: #749ca1;
 }
 
 /*------------------ pokedex ----------------- */
+.pokemonName {
+  transition: all 500ms ease;
+}
 .pokemonName:hover {
   cursor: pointer;
-  color: pink;
-  background-color: grey;
+  transform: scale(1.015);
+  box-shadow: 0px 8px 9px -3px rgba(68, 68, 68, 0.61);
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+}
+.pokemonName:hover li {
+  color: #1f2832;
 }
 /*------------------ cocktail ----------------- */
 .cocktailName:hover {

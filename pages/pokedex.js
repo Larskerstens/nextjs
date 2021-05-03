@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { Grid, Flex, Heading } from "@chakra-ui/react";
 
 export default function pokedex({ pokemons }) {
   return (
@@ -7,28 +8,35 @@ export default function pokedex({ pokemons }) {
       <Head>
         <title>Pokédex pagina</title>
       </Head>
-      <h1>Pokedex</h1>
+      <Heading textAlign="center" p="1em" color="#a53333">
+        Pokedex
+      </Heading>
       <ul>
-        {pokemons.map((pokemon, index) => (
-          <>
-            <img
-              key={index + 1}
-              src={
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                (index + 1) +
-                ".png"
-              }
-              alt={pokemon.name}
-            />
-            <Link href={"/pokemon/" + pokemon.name}>
-              <li key={index + 1}>
+        <Grid templateColumns="repeat(9, 1fr)" gap={6}>
+          {pokemons.map((pokemon, index) => (
+            <>
+              <Link href={"/pokemon/" + pokemon.name}>
                 <a className="pokemonName">
-                  {index + 1}. {pokemon.name}
+                  <Flex flexDirection="column" alignItems="center">
+                    <img
+                      key={index + 1}
+                      src={
+                        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                        (index + 1) +
+                        ".png"
+                      }
+                      alt={pokemon.name}
+                    />
+
+                    <li key={index + 1} id={index + 1}>
+                      {index + 1}. {pokemon.name}
+                    </li>
+                  </Flex>
                 </a>
-              </li>
-            </Link>
-          </>
-        ))}
+              </Link>
+            </>
+          ))}
+        </Grid>
       </ul>
     </>
   );

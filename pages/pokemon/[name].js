@@ -12,7 +12,7 @@ export default function pokemonDetail({ pokemon }) {
         }
         alt={pokemon.name}
       />
-      <Link href={"../pokedex"}>
+      <Link href={"../pokedex#" + (Number(pokemon.id) - 9)}>
         <a>go back</a>
       </Link>
     </>
