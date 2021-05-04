@@ -8,7 +8,7 @@ export default function pokedex({ pokemons }) {
       <Head>
         <title>Pokédex pagina</title>
       </Head>
-      <Heading textAlign="center" p="1em" color="#a53333">
+      <Heading textAlign="center" p="1em">
         Pokedex
       </Heading>
       <ul>

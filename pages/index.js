@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Heading, Flex } from "@chakra-ui/react";
 
 export default function index({ person }) {
   return (
@@ -6,12 +7,14 @@ export default function index({ person }) {
       <Head>
         <title>Cocktail pagina</title>
       </Head>
-      <h1>Oefening op nextjs</h1>
-      <h2>Peroonlijke info</h2>
-      <p>Naam: {person.name}</p>
-      <p>Leeftijd: {person.age}</p>
-      <p>Postcode: {person.postcode}</p>
-      <p>Gemeente: {person.gemeente}</p>
+      <Flex justifyContent="center" alignItems="center" flexDirection="column">
+        <Heading padding=".5em">Oefening op nextjs</Heading>
+        <Heading fontSize="1.5em">Peroonlijke info</Heading>
+        <p>Naam: {person.name}</p>
+        <p>Leeftijd: {person.age}</p>
+        <p>Postcode: {person.postcode}</p>
+        <p>Gemeente: {person.gemeente}</p>
+      </Flex>
     </>
   );
 }

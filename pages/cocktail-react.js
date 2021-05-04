@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import { Grid, Flex, Heading } from "@chakra-ui/react";
 
 export default function cocktailReact() {
   const [cocktails, setCocktails] = useState([]);
@@ -19,17 +20,27 @@ export default function cocktailReact() {
       <Head>
         <title>Cocktail-react pagina</title>
       </Head>
-      <h1>Cocktails-React</h1>
+      <Heading textAlign="center" p="1em">
+        Cocktail-react
+      </Heading>
       {loading && <p>loading</p>}
       {error && <p>error</p>}
       {cocktails.length !== 0 && (
         <ul>
-          {cocktails.map((cocktail) => (
-            <>
-              <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
-              <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-            </>
-          ))}
+          <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+            {cocktails.map((cocktail) => (
+              <>
+                <Flex flexDirection="column" alignItems="center">
+                  <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
+                  <img
+                    id="cocktailImg"
+                    src={cocktail.strDrinkThumb}
+                    alt={cocktail.strDrink}
+                  />
+                </Flex>
+              </>
+            ))}
+          </Grid>
         </ul>
       )}
     </>

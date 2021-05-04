@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { Grid, Flex, Heading } from "@chakra-ui/react";
 //import axios from "axios";
 
 export default function cocktail({ cocktails }) {
@@ -8,19 +9,30 @@ export default function cocktail({ cocktails }) {
       <Head>
         <title>Cocktail pagina</title>
       </Head>
-      <h1>Cocktail</h1>
+      <Heading textAlign="center" p="1em">
+        Cocktail
+      </Heading>
       {
         <ul>
-          {cocktails.map((cocktail) => (
-            <>
-              <Link href={"/cocktail/" + cocktail.strDrink}>
-                <li key={cocktail.idDrink}>
-                  <a className="cocktailName">{cocktail.strDrink} </a>
-                </li>
-              </Link>
-              <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-            </>
-          ))}
+          <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+            {cocktails.map((cocktail) => (
+              <>
+                <Link href={"/cocktail/" + cocktail.strDrink}>
+                  <a className="cocktailName">
+                    <Flex flexDirection="column" alignItems="center">
+                      <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
+
+                      <img
+                        id="cocktailImg"
+                        src={cocktail.strDrinkThumb}
+                        alt={cocktail.strDrink}
+                      />
+                    </Flex>
+                  </a>
+                </Link>
+              </>
+            ))}
+          </Grid>
         </ul>
       }
     </>

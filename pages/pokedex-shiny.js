@@ -2,13 +2,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { Grid, Flex, Heading } from "@chakra-ui/react";
 
-export default function pokedex({ pokemons }) {
+export default function pokedexShiny({ pokemons }) {
   return (
     <>
       <Head>
-        <title>Pokédex pagina</title>
+        <title>Shiny Pokédex pagina</title>
       </Head>
-      <Heading textAlign="center" p="1em" color="#a53333">
+      <Heading textAlign="center" p="1em">
         Pokedex in shiny
       </Heading>
       <ul>
