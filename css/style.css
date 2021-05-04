@@ -29,7 +29,7 @@ img {
 }
 
 #fullpage {
-  min-height: 87vh;
+  min-height: calc(100vh - 125px);
   padding: 1em;
 }
 
