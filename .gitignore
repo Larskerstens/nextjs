@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 places-db.js
 /place
+db.js
