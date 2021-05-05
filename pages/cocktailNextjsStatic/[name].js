@@ -61,6 +61,6 @@ export async function getStaticPaths() {
     paths: cocktails.map((cocktail) => ({
       params: { name: cocktail.strDrink },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 }

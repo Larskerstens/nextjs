@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Grid, Flex, Heading } from "@chakra-ui/react";
+import { Grid, Flex, Heading, Skeleton } from "@chakra-ui/react";
 
 export default function pokedex({ pokemons }) {
   return (
@@ -18,15 +18,17 @@ export default function pokedex({ pokemons }) {
               <Link href={"/pokemon/" + pokemon.name}>
                 <a className="pokemonName">
                   <Flex flexDirection="column" alignItems="center">
-                    <img
-                      key={index + 1}
-                      src={
-                        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                        (index + 1) +
-                        ".png"
-                      }
-                      alt={pokemon.name}
-                    />
+                    <Skeleton isLoaded>
+                      <img
+                        key={index + 1}
+                        src={
+                          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                          (index + 1) +
+                          ".png"
+                        }
+                        alt={pokemon.name}
+                      />
+                    </Skeleton>
 
                     <li key={index + 1} id={index + 1}>
                       {index + 1}. {pokemon.name}

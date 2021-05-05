@@ -14,7 +14,7 @@ export default function index({ person }) {
   return (
     <>
       <Head>
-        <title>Cocktail pagina</title>
+        <title>Info pagina</title>
       </Head>
 
       <Flex justifyContent="center" alignItems="center" flexDirection="column">

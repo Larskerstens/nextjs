@@ -12,29 +12,28 @@ export default function cocktail({ cocktails }) {
       <Heading textAlign="center" p="1em">
         Cocktail
       </Heading>
-      {
-        <ul>
-          <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-            {cocktails.map((cocktail) => (
-              <>
-                <Link href={"/cocktailNextjsStatic/" + cocktail.strDrink}>
-                  <a className="cocktailName">
-                    <Flex flexDirection="column" alignItems="center">
-                      <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
 
-                      <img
-                        id="cocktailImg"
-                        src={cocktail.strDrinkThumb}
-                        alt={cocktail.strDrink}
-                      />
-                    </Flex>
-                  </a>
-                </Link>
-              </>
-            ))}
-          </Grid>
-        </ul>
-      }
+      <ul>
+        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+          {cocktails.map((cocktail) => (
+            <>
+              <Link href={"/cocktailNextjsStatic/" + cocktail.strDrink}>
+                <a className="cocktailName">
+                  <Flex flexDirection="column" alignItems="center">
+                    <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
+
+                    <img
+                      id="cocktailImg"
+                      src={cocktail.strDrinkThumb}
+                      alt={cocktail.strDrink}
+                    />
+                  </Flex>
+                </a>
+              </Link>
+            </>
+          ))}
+        </Grid>
+      </ul>
     </>
   );
 }
