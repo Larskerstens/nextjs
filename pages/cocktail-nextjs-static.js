@@ -3,31 +3,29 @@ import Link from "next/link";
 import { Grid, Flex, Heading } from "@chakra-ui/react";
 //import axios from "axios";
 
-export default function movie({ movies }) {
+export default function cocktail({ cocktails }) {
   return (
     <>
       <Head>
-        <title>Movies pagina</title>
+        <title>Cocktail pagina</title>
       </Head>
       <Heading textAlign="center" p="1em">
-        Movies
+        Cocktail
       </Heading>
       {
         <ul>
-          <Grid templateColumns="repeat(10, 1fr)" gap={6}>
-            {movies.map((movie) => (
+          <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+            {cocktails.map((cocktail) => (
               <>
-                <Link href={"/movie/" + movie.title}>
+                <Link href={"/cocktail/" + cocktail.strDrink}>
                   <a className="cocktailName">
                     <Flex flexDirection="column" alignItems="center">
-                      <li key={movie.id}>{movie.title}</li>
+                      <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
 
                       <img
-                        id="movieImg"
-                        src={
-                          "https://image.tmdb.org/t/p/w500" + movie.poster_path
-                        }
-                        alt={movie.title}
+                        id="cocktailImg"
+                        src={cocktail.strDrinkThumb}
+                        alt={cocktail.strDrink}
                       />
                     </Flex>
                   </a>
@@ -43,13 +41,14 @@ export default function movie({ movies }) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    "https://api.themoviedb.org/3/search/movie?api_key=10fa74251cfff94026cb589d95b3db91&language=en-US&query=saw&page=1&include_adult=false"
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=l"
   );
   const data = await response.json();
-  const movies = data.results;
+  const cocktails = data.drinks;
   return {
     props: {
-      movies,
+      cocktails: cocktails,
+      //cocktails
     },
   };
 }

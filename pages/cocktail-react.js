@@ -9,7 +9,7 @@ export default function cocktailReact() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c")
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=i")
       .then((response) => response.json())
       .then((data) => setCocktails(data.drinks))
       .catch(() => setError(true))

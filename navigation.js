@@ -39,6 +39,13 @@ function navigation() {
               </Link>
             </li>
             <li>
+              <Link href="/cocktail-nextjs-static">
+                <a title="Ga naar de Cocktail-nextjs-static pagina">
+                  Cocktail-static
+                </a>
+              </Link>
+            </li>
+            <li>
               <Link href="/movie">
                 <a title="Ga naar de Movie pagina">Movie</a>
               </Link>

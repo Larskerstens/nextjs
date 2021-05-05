@@ -42,7 +42,7 @@ export default function pokedex({ pokemons }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon-species?offset=0&limit=900"
   );
