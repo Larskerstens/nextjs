@@ -17,7 +17,7 @@ export default function cocktail({ cocktails }) {
           <Grid templateColumns="repeat(5, 1fr)" gap={6}>
             {cocktails.map((cocktail) => (
               <>
-                <Link href={"/cocktail/" + cocktail.strDrink}>
+                <Link href={"/cocktailNextjsStatic/" + cocktail.strDrink}>
                   <a className="cocktailName">
                     <Flex flexDirection="column" alignItems="center">
                       <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
