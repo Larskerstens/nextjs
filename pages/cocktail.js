@@ -10,7 +10,7 @@ export default function cocktail({ cocktails }) {
         <title>Cocktail pagina</title>
       </Head>
       <Heading textAlign="center" p="1em">
-        Cocktail
+        Cocktail-ssr
       </Heading>
       {
         <ul>
