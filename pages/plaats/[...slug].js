@@ -7,11 +7,11 @@ import {
   Button,
   Box,
 } from "@chakra-ui/react";
-import db from "../../db";
+import db from "../../DB";
 
 import slugify from "slugify";
 
-export default function plaatsDetail({ place }) {
+export default function plaatsDetail({ plaats }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -21,17 +21,17 @@ export default function plaatsDetail({ place }) {
       </Head>
 
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Heading padding=".5em">{place.img_location}</Heading>
+        <Heading padding=".5em">{plaats.img_location}</Heading>
         <Button onClick={onToggle}>Klik hier voor mijn info</Button>
         <ScaleFade initialScale={0.9} in={isOpen}>
           <Box p="40px" color="white" mt="4" rounded="md" shadow="md">
-            <p>Locatie: {place.img_location}</p>
-            <p>Id: {place.img_id}</p>
-            <p>Bestandsnaam foto: {place.img_filename}</p>
+            <p>Locatie: {plaats.img_location}</p>
+            <p>Id: {plaats.img_id}</p>
+            <p>Bestandsnaam foto: {plaats.img_filename}</p>
             <p>
-              Aantal pixels: {place.img_width} x {place.img_height}
+              Aantal pixels: {plaats.img_width} x {plaats.img_height}
             </p>
-            <p>Korte uitleg: {place.img_title}</p>
+            <p>Korte uitleg: {plaats.img_title}</p>
           </Box>
         </ScaleFade>
       </Flex>
@@ -54,10 +54,10 @@ export async function getStaticProps(context) {
     )
     .table("images")
     .where("img_id", id);
-  const place = JSON.parse(JSON.stringify(results[0]));
+  const plaats = JSON.parse(JSON.stringify(results[0]));
   return {
     props: {
-      place,
+      plaats,
     },
   };
 }
