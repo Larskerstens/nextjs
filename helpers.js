@@ -5,3 +5,5 @@ export const slugit = (str) =>
     lower: true,
     strict: true,
   });
+
+//test
