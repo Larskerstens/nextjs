@@ -7,3 +7,4 @@ export const slugit = (str) =>
   });
 
 //test
+// test2 for commit
