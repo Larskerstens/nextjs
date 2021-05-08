@@ -42,9 +42,7 @@ export default function pokemonDetail({ pokemon }) {
 
 export async function getStaticProps(context) {
   const { name } = context.params;
-  const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=900/" + name
-  );
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name);
   const pokemon = await response.json();
   return {
     props: {
