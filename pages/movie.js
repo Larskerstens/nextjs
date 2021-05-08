@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Grid, Flex, Heading, Skeleton } from "@chakra-ui/react";
+import { Grid, Flex, Heading, Skeleton, Image } from "@chakra-ui/react";
 //import axios from "axios";
 
 export default function movie({ movies }) {
@@ -18,19 +18,21 @@ export default function movie({ movies }) {
             {movies.map((movie) => (
               <>
                 <Link href={"/movie/" + movie.title}>
-                  <a className="cocktailName">
+                  <a className="movieName">
                     <Flex flexDirection="column" alignItems="center">
-                      <li key={movie.id}>{movie.title}</li>
-                      <Skeleton isLoaded>
-                        <img
-                          id="movieImg"
-                          src={
-                            "https://image.tmdb.org/t/p/w500" +
-                            movie.poster_path
-                          }
-                          alt={movie.title}
-                        />
-                      </Skeleton>
+                      <li key={movie.id}>
+                        {movie.title}
+                        <Skeleton isLoaded={movie.poster_path}>
+                          <Image
+                            id="movieImg"
+                            src={
+                              "https://image.tmdb.org/t/p/w500" +
+                              movie.poster_path
+                            }
+                            alt={movie.title}
+                          />
+                        </Skeleton>
+                      </li>
                     </Flex>
                   </a>
                 </Link>

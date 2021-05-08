@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Grid, Flex, Heading } from "@chakra-ui/react";
-//import axios from "axios";
+
+import { slugit } from "../helpers";
 
 export default function cocktail({ cocktails }) {
   return (

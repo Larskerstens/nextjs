@@ -13,62 +13,50 @@ a {
 }
 ul {
   list-style-type: none;
-  color: #1f2832;
 }
 
-h2 {
+h1 {
   color: #a53333;
+  text-align: center;
+  padding: 1em 0;
 }
 p,
-ul {
+li {
   color: #1f2832;
-}
-
-img {
-  padding: 1em 0em;
 }
 
 #fullpage {
-  min-height: calc(100vh - 125px);
+  min-height: calc(100vh - 124px);
   padding: 1em;
 }
 
-/*------------------ Navigation ----------------- */
-#nav a {
-  padding: 0.5em 0.5em !important;
-}
-
-#nav a:hover {
-  border-bottom: 2px solid #749ca1;
-  color: #749ca1;
-}
-
 /*------------------ pokedex ----------------- */
-.pokemonName {
-  transition: all 500ms ease;
+.pokemonName,
+.cocktailName {
+  transition: all 700ms ease;
 }
 .pokemonName:hover,
 .cocktailName:hover {
   cursor: pointer;
-  transform: scale(1.015);
   box-shadow: 0px 8px 9px -3px rgba(68, 68, 68, 0.61);
   background-color: rgb(245, 245, 245);
   border-radius: 10px;
 }
-.pokemonName:hover li {
-  color: #1f2832;
+.pokeImg,
+.pokeShinyImg {
+  height: 350px;
+  padding: 1em 0;
+}
+.pokemonName:hover li,
+.cocktailName:hover li {
+  color: #749ca1;
+}
+.pokemonName li {
+  padding-bottom: 1em;
 }
 
-#pokeImg,
-#pokeShinyImg {
-  height: 350px;
-}
 /*------------------ cocktail ----------------- */
 
-.cocktailName {
-  transition: all 500ms ease;
-}
-
-#cocktailImg {
+.cocktailImg {
   height: 300px;
 }

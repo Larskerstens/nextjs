@@ -22,7 +22,9 @@ export default function index({ person }) {
         <Heading fontSize="1.5em" mb="1.5em">
           Peroonlijke info
         </Heading>
-        <Button onClick={onToggle}>Klik hier voor mijn info</Button>
+        <Button onClick={onToggle} _focus={{ outline: 0 }}>
+          Klik hier voor mijn info
+        </Button>
         <ScaleFade initialScale={0.9} in={isOpen}>
           <Box p="40px" color="white" mt="4" rounded="md" shadow="md">
             <p>Naam: {person.name}</p>

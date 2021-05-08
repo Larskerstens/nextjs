@@ -30,8 +30,12 @@ export default function counter() {
         <Heading p="1em">Counterstatus: {counter}</Heading>
         <InputGroup w="500px">
           <InputLeftAddon border="none">
-            <Button onClick={increment}>+</Button>
-            <Button onClick={deccrement}>-</Button>
+            <Button onClick={increment} _focus={{ outline: 0 }}>
+              +
+            </Button>
+            <Button onClick={deccrement} _focus={{ outline: 0 }}>
+              -
+            </Button>
           </InputLeftAddon>
           <Input
             type="number"
@@ -52,8 +56,12 @@ export default function counter() {
         <Heading p="1em">Counterstatus: {counterTwo}</Heading>
         <InputGroup w="500px">
           <InputLeftAddon border="none">
-            <Button onClick={multiple}>x2</Button>
-            <Button onClick={divide}>%2</Button>
+            <Button onClick={multiple} _focus={{ outline: 0 }}>
+              x2
+            </Button>
+            <Button onClick={divide} _focus={{ outline: 0 }}>
+              %2
+            </Button>
           </InputLeftAddon>
           <Input
             type="number"

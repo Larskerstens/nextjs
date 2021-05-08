@@ -12,7 +12,7 @@ export default function pokemonDetail({ pokemon }) {
         <Heading padding=".5em">{pokemon.name}</Heading>
         <p>Number: {pokemon.id}</p>
         <img
-          id="pokeImg"
+          className="pokeImg"
           src={pokemon.sprites.other.dream_world.front_default}
           alt={pokemon.name}
         />
@@ -40,13 +40,27 @@ export default function pokemonDetail({ pokemon }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { name } = context.query;
+export async function getStaticProps(context) {
+  const { name } = context.params;
   const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name);
-  const data = await response.json();
+  const pokemon = await response.json();
   return {
     props: {
-      pokemon: data,
+      pokemon,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const response = await fetch(
+    "https://pokeapi.co/api/v2/pokemon-species?offset=0&limit=900"
+  );
+  const data = await response.json();
+  const pokemons = data.results;
+  return {
+    paths: pokemons.map((pokemon) => ({
+      params: { name: pokemon.name },
+    })),
+    fallback: "blocking",
   };
 }
