@@ -47,8 +47,7 @@ export async function getStaticProps() {
   const cocktails = data.drinks;
   return {
     props: {
-      cocktails: cocktails,
-      //cocktails
+      cocktails,
     },
   };
 }
