@@ -31,7 +31,7 @@ export default function pokemonDetail({ pokemon }) {
           >
             <a>
               <ArrowBackIcon marginRight="1em" />
-              Ga terug
+              Terug naar pokédex overzicht
             </a>
           </Flex>
         </Link>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { HStack, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
-
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 function navigation() {
