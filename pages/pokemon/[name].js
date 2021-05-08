@@ -53,7 +53,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon-species?offset=0&limit=900"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=900"
   );
   const data = await response.json();
   const pokemons = data.results;
