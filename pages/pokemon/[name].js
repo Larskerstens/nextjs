@@ -31,7 +31,7 @@ export default function pokemonDetail({ pokemon }) {
           >
             <a>
               <ArrowBackIcon marginRight="1em" />
-              Terug naar pokédex overzicht
+              Terug naar Pokédex overzicht
             </a>
           </Flex>
         </Link>
@@ -42,7 +42,9 @@ export default function pokemonDetail({ pokemon }) {
 
 export async function getStaticProps(context) {
   const { name } = context.params;
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name);
+  const response = await fetch(
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=900/" + name
+  );
   const pokemon = await response.json();
   return {
     props: {
