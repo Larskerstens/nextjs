@@ -49,5 +49,6 @@ export async function getStaticProps() {
     props: {
       pokemons,
     },
+    revalidate: 3600,
   };
 }

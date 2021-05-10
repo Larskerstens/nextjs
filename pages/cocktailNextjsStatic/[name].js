@@ -2,6 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { slugit } from "../../helpers";
+
 export default function cocktailDetail({ cocktail }) {
   return (
     <>
@@ -44,6 +46,7 @@ export async function getStaticProps(context) {
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
   );
   const data = await response.json();
+  console.log(data);
   return {
     props: {
       cocktail: data.drinks[0],
@@ -59,7 +62,7 @@ export async function getStaticPaths() {
   const cocktails = data.drinks;
   return {
     paths: cocktails.map((cocktail) => ({
-      params: { name: cocktail.strDrink },
+      params: { name: slugit(cocktail.strDrink) },
     })),
     fallback: "blocking",
   };
