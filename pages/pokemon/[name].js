@@ -2,6 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import { Flex, Heading } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { slugit } from "../../helpers";
+
 export default function pokemonDetail({ pokemon }) {
   return (
     <>
@@ -59,7 +61,7 @@ export async function getStaticPaths() {
   const pokemons = data.results;
   return {
     paths: pokemons.map((pokemon) => ({
-      params: { name: pokemon.name },
+      params: { name: slugit(pokemon.name) },
     })),
     fallback: "blocking",
   };

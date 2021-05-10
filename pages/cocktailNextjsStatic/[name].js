@@ -42,11 +42,12 @@ export default function cocktailDetail({ cocktail }) {
 
 export async function getStaticProps(context) {
   const { name } = context.params;
+  //console.log(name);
   const response = await fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
   );
   const data = await response.json();
-  console.log(data);
+  //console.log(data);
   return {
     props: {
       cocktail: data.drinks[0],
@@ -62,7 +63,7 @@ export async function getStaticPaths() {
   const cocktails = data.drinks;
   return {
     paths: cocktails.map((cocktail) => ({
-      params: { name: slugit(cocktail.strDrink) },
+      params: { name: cocktail.strDrink },
     })),
     fallback: "blocking",
   };
