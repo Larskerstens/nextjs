@@ -2,6 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { slugit } from "../../helpers";
+
 export default function movieDetail({ movie }) {
   return (
     <>
@@ -10,7 +12,6 @@ export default function movieDetail({ movie }) {
       </Head>
       <Flex>
         <Image
-          boxSize="800px"
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
         />
@@ -44,15 +45,35 @@ export default function movieDetail({ movie }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { name } = context.query;
+export async function getStaticProps(context) {
+  const [id] = context.params.slug;
   const response = await fetch(
-    "https://api.themoviedb.org/3/movie/176?api_key=10fa74251cfff94026cb589d95b3db91&language=en-US"
+    "https://api.themoviedb.org/3/movie/" +
+      id +
+      "?api_key=10fa74251cfff94026cb589d95b3db91&language=en-US"
   );
   const data = await response.json();
   return {
     props: {
       movie: data,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const response = await fetch(
+    "https://api.themoviedb.org/3/search/movie?api_key=10fa74251cfff94026cb589d95b3db91&language=en-US&query=saw&page=1&include_adult=false"
+  );
+  const data = await response.json();
+  const movies = data.results;
+  const paths = movies.map((movie) => ({
+    params: {
+      slug: [movie.id.toString(), slugit(movie.title)],
+    },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
   };
 }

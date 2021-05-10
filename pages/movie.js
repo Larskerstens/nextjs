@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Grid, Flex, Heading, Skeleton, Image } from "@chakra-ui/react";
-//import axios from "axios";
+import { slugit } from "../helpers";
 
 export default function movie({ movies }) {
   return (
@@ -9,22 +9,20 @@ export default function movie({ movies }) {
       <Head>
         <title>Movies pagina</title>
       </Head>
-      <Heading textAlign="center" p="1em">
-        Movies
-      </Heading>
+      <Heading as="h1">Movies</Heading>
       {
         <ul>
           <Grid templateColumns="repeat(10, 1fr)" gap={6}>
             {movies.map((movie) => (
               <>
-                <Link href={"/movie/" + movie.title}>
+                <Link href={"/movie/" + movie.id + "/" + slugit(movie.title)}>
                   <a className="movieName">
                     <Flex flexDirection="column" alignItems="center">
                       <li key={movie.id}>
                         {movie.title}
                         <Skeleton isLoaded={movie.poster_path}>
                           <Image
-                            id="movieImg"
+                            className="movieImg"
                             src={
                               "https://image.tmdb.org/t/p/w500" +
                               movie.poster_path

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Grid, Flex, Heading } from "@chakra-ui/react";
-
+import { Grid, Flex, Heading, Image } from "@chakra-ui/react";
 import { slugit } from "../helpers";
 
 export default function cocktail({ cocktails }) {
@@ -10,21 +9,26 @@ export default function cocktail({ cocktails }) {
       <Head>
         <title>Cocktail pagina</title>
       </Head>
-      <Heading textAlign="center" p="1em">
-        Cocktail-Static
-      </Heading>
+      <Heading as="h1">Cocktail-Static</Heading>
 
       <ul>
         <Grid templateColumns="repeat(5, 1fr)" gap={6}>
           {cocktails.map((cocktail) => (
             <>
-              <Link href={"/cocktailNextjsStatic/" + cocktail.strDrink}>
+              <Link
+                href={
+                  "/cocktailNextjsStatic/" +
+                  cocktail.idDrink +
+                  "/" +
+                  slugit(cocktail.strDrink)
+                }
+              >
                 <a className="cocktailName">
                   <Flex flexDirection="column" alignItems="center">
                     <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
 
-                    <img
-                      id="cocktailImg"
+                    <Image
+                      className="cocktailImg"
                       src={cocktail.strDrinkThumb}
                       alt={cocktail.strDrink}
                     />

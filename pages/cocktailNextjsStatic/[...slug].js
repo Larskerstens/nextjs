@@ -11,11 +11,7 @@ export default function cocktailDetail({ cocktail }) {
         <title>{cocktail.strDrink} pagina</title>
       </Head>
       <Flex>
-        <Image
-          boxSize="800px"
-          src={cocktail.strDrinkThumb}
-          alt={cocktail.strDrink}
-        />
+        <Image src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
         <Flex flexDirection="column" marginLeft="2em">
           <Heading padding="1em 0">{cocktail.strDrink}</Heading>
           <p>{cocktail.strInstructions}</p>
@@ -26,6 +22,9 @@ export default function cocktailDetail({ cocktail }) {
                 border="1px solid #a53333"
                 padding=".5em .8em"
                 borderRadius="10px"
+                _hover={{
+                  bg: "#a53333",
+                }}
               >
                 <a>
                   <ArrowBackIcon marginRight="1em" />
@@ -41,10 +40,10 @@ export default function cocktailDetail({ cocktail }) {
 }
 
 export async function getStaticProps(context) {
-  const { name } = context.params;
-  //console.log(name);
+  const [id] = context.params.slug;
+  //console.log(context.params.slug);
   const response = await fetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id
   );
   const data = await response.json();
   //console.log(data);
@@ -61,10 +60,14 @@ export async function getStaticPaths() {
   );
   const data = await response.json();
   const cocktails = data.drinks;
+  const paths = cocktails.map((cocktail) => ({
+    params: {
+      slug: [cocktail.idDrink.toString(), slugit(cocktail.strDrink)],
+    },
+  }));
+
   return {
-    paths: cocktails.map((cocktail) => ({
-      params: { name: cocktail.strDrink },
-    })),
+    paths,
     fallback: "blocking",
   };
 }

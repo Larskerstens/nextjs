@@ -17,14 +17,16 @@ export default function pokedex({ pokemons }) {
               <Link href={"/pokemon/" + slugit(pokemon.name)}>
                 <a className="pokemonName">
                   <Flex flexDirection="column" alignItems="center">
-                    <Image
-                      src={
-                        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                        (index + 1) +
-                        ".png"
-                      }
-                      alt={pokemon.name}
-                    />
+                    <figure>
+                      <Image
+                        src={
+                          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                          (index + 1) +
+                          ".png"
+                        }
+                        alt={pokemon.name}
+                      />
+                    </figure>
                     <li key={index + 1} id={index + 1}>
                       {index + 1}. {pokemon.name}
                     </li>
