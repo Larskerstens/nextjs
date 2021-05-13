@@ -64,3 +64,16 @@ li {
   text-align: center;
   min-height: 50px;
 }
+
+/*------------------ aoe ----------------- */
+
+.unitstable {
+  text-decoration: underline;
+  color: #749ca1;
+}
+.unitstable li {
+  color: #749ca1;
+}
+.unitstable:hover {
+  opacity: 0.5;
+}
