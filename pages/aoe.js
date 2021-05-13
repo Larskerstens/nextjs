@@ -47,11 +47,7 @@ export default function aoe({
               <SimpleGrid columns={4} spacing={5} textAlign='center'>
                 {civilizations.map((civil) => (
                   <>
-                    <Link href={"/aoe/" + civil.id + "/" + slugit(civil.name)}>
-                      <a className='unitstable'>
-                        <li key={civil.id}>{civil.name}</li>
-                      </a>
-                    </Link>
+                    <li key={civil.id}>{civil.name}</li>
                   </>
                 ))}
               </SimpleGrid>
@@ -162,18 +158,7 @@ export default function aoe({
                   <>
                     <Tr>
                       <Td isNumeric>{structure.id}</Td>
-                      <Td isNumeric>
-                        <Link
-                          href={
-                            "/aoe/" +
-                            structure.id +
-                            "/" +
-                            slugit(structure.name)
-                          }
-                        >
-                          <a className='unitstable'>{structure.name}</a>
-                        </Link>
-                      </Td>
+                      <Td isNumeric>{structure.name}</Td>
                       <Td isNumeric>{structure.age}</Td>
                       <Td isNumeric>
                         Wood: {structure.cost.Wood || 0}, Food:{" "}
@@ -230,18 +215,7 @@ export default function aoe({
                   <>
                     <Tr>
                       <Td isNumeric>{technologie.id}</Td>
-                      <Td isNumeric>
-                        <Link
-                          href={
-                            "/aoe/" +
-                            technologie.id +
-                            "/" +
-                            slugit(technologie.name)
-                          }
-                        >
-                          <a className='unitstable'>{technologie.name}</a>
-                        </Link>
-                      </Td>
+                      <Td isNumeric>{technologie.name}</Td>
                       <Td isNumeric>
                         Wood: {technologie.cost.Wood || 0}, Food:{" "}
                         {technologie.cost.Food || 0}, Gold:{" "}

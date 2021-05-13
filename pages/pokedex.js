@@ -9,14 +9,21 @@ export default function pokedex({ pokemons }) {
       <Head>
         <title>Pokédex pagina</title>
       </Head>
-      <Heading as="h1">Pokédex</Heading>
+      <Heading as='h1'>Pokédex</Heading>
       <ul>
-        <Grid templateColumns="repeat(9, 1fr)" gap={6}>
+        <Grid
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(6, 1fr)",
+          ]}
+        >
           {pokemons.map((pokemon, index) => (
             <>
               <Link href={"/pokemon/" + slugit(pokemon.name)}>
-                <a className="pokemonName">
-                  <Flex flexDirection="column" alignItems="center">
+                <a className='pokemonName'>
+                  <Flex flexDirection='column' alignItems='center'>
                     <figure>
                       <Image
                         src={
@@ -43,7 +50,7 @@ export default function pokedex({ pokemons }) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon-species?offset=0&limit=900"
+    "https://pokeapi.co/api/v2/pokemon-species?offset=0&limit=900",
   );
   const data = await response.json();
   const pokemons = data.results;
