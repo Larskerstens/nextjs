@@ -1,25 +1,67 @@
 import Link from "next/link";
 import {
   HStack,
-  Box,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import MobileNav from "./MobileNav"
+import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
+import React from "react"
 
-function navigation() {
- 
-  return (
-    <>
-      <Box display={["none", "none", "none", "block"]}>
-        <HStack bgColor='#a53333' justifyContent='space-evenly'>
+function mobileNav() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+
+  function CloseDraw() {
+    setTimeout(function(){ onClose() }, 200);
+  }
+
+    return (
+        <>
+            <Button
+          ref={btnRef}
+          background='#A53333'
+          color='#F1F1F1'
+          onClick={onOpen}
+          my={4}
+          mx={4}
+          px={4}
+          py={3}
+          fontSize='2em'
+          _focus={{ outline: 0 }}
+          _hover={{ opacity: 0.7 }}
+        >
+          <HamburgerIcon />
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement='right'
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton _focus={{ outline: 0 }} fontSize='1.5em'  my={2}
+          mx={2}
+          px={6}
+          py={5}/>
+            <DrawerHeader  borderBottom="1px solid red">Titel + icon</DrawerHeader>
+
+            <DrawerBody>
+            <HStack flexDirection="column">
           <Menu>
             <Link href='/' passHref>
               <MenuButton
-                my={3}
+              onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -36,7 +78,6 @@ function navigation() {
           </Menu>
           <Menu>
             <MenuButton
-              my={4}
               px={4}
               py={3}
               zIndex='4'
@@ -93,7 +134,7 @@ function navigation() {
           </Menu>
           <Menu>
             <MenuButton
-              my={4}
+           
               px={4}
               py={3}
               zIndex='4'
@@ -158,7 +199,7 @@ function navigation() {
           <Menu>
             <Link href='/movie' passHref>
               <MenuButton
-                my={4}
+            onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -176,7 +217,7 @@ function navigation() {
           <Menu>
             <Link href='/todo' passHref>
               <MenuButton
-                my={4}
+            onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -194,7 +235,7 @@ function navigation() {
           <Menu>
             <Link href='/counter' passHref>
               <MenuButton
-                my={4}
+            onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -213,7 +254,7 @@ function navigation() {
           <Menu>
             <Link href='/aoe' passHref>
               <MenuButton
-                my={4}
+               onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -233,7 +274,7 @@ function navigation() {
           <Menu>
             <Link href='/train' passHref>
               <MenuButton
-                my={4}
+            onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -251,7 +292,7 @@ function navigation() {
           <Menu>
             <Link href='/places-db' passHref>
               <MenuButton
-                my={4}
+            onClick={CloseDraw}
                 px={4}
                 py={3}
                 zIndex='4'
@@ -267,16 +308,12 @@ function navigation() {
             </Link>
           </Menu>
         </HStack>
-      </Box>
-      <Box
-        textAlign='end'
-        background='#a53333'
-        display={["block", "block", "block", "none"]}
-      >
-        <MobileNav />
-      </Box>
-    </>
-  );
+
+          </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+        </>
+    )
 }
 
-export default navigation;
+export default mobileNav
