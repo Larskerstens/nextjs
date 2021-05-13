@@ -2,6 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { Flex, Heading } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { slugit, cap } from "../../helpers";
 
 export default function pokemonShinyDetail({ pokemon }) {
   return (
@@ -10,7 +11,7 @@ export default function pokemonShinyDetail({ pokemon }) {
         <title>{pokemon.name} pagina</title>
       </Head>
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Heading padding=".5em">{pokemon.name}</Heading>
+        <Heading padding=".5em">{cap(pokemon.name)}</Heading>
         <p>Number: {pokemon.id}</p>
         <img
           id="pokeShinyImg"
@@ -21,7 +22,7 @@ export default function pokemonShinyDetail({ pokemon }) {
           }
           alt={pokemon.name}
         />
-        <p>Type: {pokemon.types.map((n) => n.type.name).join(", ")}</p>
+        <p>Type: {pokemon.types.map((n) => cap(n.type.name)).join(", ")}</p>
         <p>Weight: {pokemon.weight}</p>
         <p>Height: {pokemon.height}</p>
         <Link href={"../pokedex-shiny#" + (Number(pokemon.id) - 9)}>
@@ -36,7 +37,7 @@ export default function pokemonShinyDetail({ pokemon }) {
           >
             <a>
               <ArrowBackIcon marginRight="1em" />
-              Ga terug
+              Terug naar Pokédex overzicht
             </a>
           </Flex>
         </Link>

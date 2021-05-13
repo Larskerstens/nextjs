@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Grid, Flex, Heading } from "@chakra-ui/react";
+import { Grid, Flex, Heading, Image } from "@chakra-ui/react";
+import { slugit, cap } from "../helpers";
 
 export default function pokedexShiny({ pokemons }) {
   return (
@@ -15,10 +16,10 @@ export default function pokedexShiny({ pokemons }) {
         <Grid templateColumns="repeat(9, 1fr)" gap={6}>
           {pokemons.map((pokemon, index) => (
             <>
-              <Link href={"/pokemonShiny/" + pokemon.name}>
+              <Link href={"/pokemonShiny/" + slugit(pokemon.name)}>
                 <a className="pokemonName">
                   <Flex flexDirection="column" alignItems="center">
-                    <img
+                    <Image
                       key={index + 1}
                       src={
                         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
@@ -28,7 +29,7 @@ export default function pokedexShiny({ pokemons }) {
                       alt={pokemon.name}
                     />
                     <li key={index + 1} id={index + 1}>
-                      {index + 1}. {pokemon.name}
+                      {index + 1}. {cap(pokemon.name)}
                     </li>
                   </Flex>
                 </a>

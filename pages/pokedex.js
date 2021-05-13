@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Grid, Flex, Heading, Image } from "@chakra-ui/react";
-import { slugit } from "../helpers";
+import { slugit, cap } from "../helpers";
 
 export default function pokedex({ pokemons }) {
   return (
@@ -28,7 +28,7 @@ export default function pokedex({ pokemons }) {
                       />
                     </figure>
                     <li key={index + 1} id={index + 1}>
-                      {index + 1}. {pokemon.name}
+                      {index + 1}. {cap(pokemon.name)}
                     </li>
                   </Flex>
                 </a>

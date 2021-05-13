@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { Flex, Heading } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { slugit } from "../../helpers";
+import { slugit, cap } from "../../helpers";
 
 export default function pokemonDetail({ pokemon }) {
   return (
@@ -11,7 +11,7 @@ export default function pokemonDetail({ pokemon }) {
         <title>{pokemon.name} pagina</title>
       </Head>
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Heading padding=".5em">{pokemon.name}</Heading>
+        <Heading padding=".5em">{cap(pokemon.name)}</Heading>
         <p>Number: {pokemon.id}</p>
         <img
           className="pokeImg"

@@ -10,35 +10,34 @@ export default function movie({ movies }) {
         <title>Movies pagina</title>
       </Head>
       <Heading as="h1">Movies</Heading>
-      {
-        <ul>
-          <Grid templateColumns="repeat(10, 1fr)" gap={6}>
-            {movies.map((movie) => (
-              <>
-                <Link href={"/movie/" + movie.id + "/" + slugit(movie.title)}>
-                  <a className="movieName">
-                    <Flex flexDirection="column" alignItems="center">
-                      <li key={movie.id}>
-                        {movie.title}
-                        <Skeleton isLoaded={movie.poster_path}>
-                          <Image
-                            className="movieImg"
-                            src={
-                              "https://image.tmdb.org/t/p/w500" +
-                              movie.poster_path
-                            }
-                            alt={movie.title}
-                          />
-                        </Skeleton>
-                      </li>
-                    </Flex>
-                  </a>
-                </Link>
-              </>
-            ))}
-          </Grid>
-        </ul>
-      }
+
+      <ul>
+        <Grid templateColumns="repeat(10, 1fr)" gap={6}>
+          {movies.map((movie) => (
+            <>
+              <Link href={"/movie/" + movie.id + "/" + slugit(movie.title)}>
+                <a className="movieName">
+                  <Flex flexDirection="column" alignItems="center">
+                    <li key={movie.id}>
+                      <p>{movie.title}</p>
+                      <Skeleton isLoaded={movie.poster_path}>
+                        <Image
+                          className="movieImg"
+                          src={
+                            "https://image.tmdb.org/t/p/w500" +
+                            movie.poster_path
+                          }
+                          alt={movie.title}
+                        />
+                      </Skeleton>
+                    </li>
+                  </Flex>
+                </a>
+              </Link>
+            </>
+          ))}
+        </Grid>
+      </ul>
     </>
   );
 }

@@ -32,11 +32,13 @@ li {
 
 /*------------------ pokedex ----------------- */
 .pokemonName,
-.cocktailName {
+.cocktailName,
+.movieName {
   transition: all 700ms ease;
 }
 .pokemonName:hover,
-.cocktailName:hover {
+.cocktailName:hover,
+.movieName:hover {
   cursor: pointer;
   box-shadow: 0px 8px 9px -3px rgba(68, 68, 68, 0.61);
   background-color: rgb(245, 245, 245);
@@ -48,7 +50,8 @@ li {
   padding: 1em 0;
 }
 .pokemonName:hover li,
-.cocktailName:hover li {
+.cocktailName:hover li,
+.movieName:hover li p {
   color: #749ca1;
 }
 .pokemonName li {
@@ -56,3 +59,8 @@ li {
 }
 
 /*------------------ cocktail ----------------- */
+
+.movieName li p {
+  text-align: center;
+  min-height: 50px;
+}

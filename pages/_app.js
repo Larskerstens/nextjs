@@ -1,6 +1,5 @@
 import { ThemeProvider, theme, CSSReset, Box } from "@chakra-ui/react";
-import Navigation from "../navigation.js";
-import Footer from "../footer.js";
+import Layout from "../components/Layout";
 import "../css/style.css";
 
 function MyApp({ Component, pageProps }) {
@@ -8,11 +7,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <ThemeProvider theme={theme}>
         <CSSReset />
-        <Navigation />
-        <Box id="fullpage">
-          <Component {...pageProps} />
-        </Box>
-        <Footer />
+        <Layout>
+          <Box id='fullpage'>
+            <Component {...pageProps} />
+          </Box>
+        </Layout>
       </ThemeProvider>
     </>
   );

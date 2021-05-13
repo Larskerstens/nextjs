@@ -9,10 +9,10 @@ export default function cocktail({ cocktails }) {
       <Head>
         <title>Cocktail pagina</title>
       </Head>
-      <Heading as="h1">Cocktail-Static</Heading>
+      <Heading as='h1'>Cocktail-Static</Heading>
 
       <ul>
-        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+        <Grid templateColumns='repeat(5, 1fr)' gap={6}>
           {cocktails.map((cocktail) => (
             <>
               <Link
@@ -23,12 +23,12 @@ export default function cocktail({ cocktails }) {
                   slugit(cocktail.strDrink)
                 }
               >
-                <a className="cocktailName">
-                  <Flex flexDirection="column" alignItems="center">
+                <a className='cocktailName'>
+                  <Flex flexDirection='column' alignItems='center'>
                     <li key={cocktail.idDrink}>{cocktail.strDrink}</li>
 
                     <Image
-                      className="cocktailImg"
+                      className='cocktailImg'
                       src={cocktail.strDrinkThumb}
                       alt={cocktail.strDrink}
                     />
@@ -45,7 +45,7 @@ export default function cocktail({ cocktails }) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=l"
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=l",
   );
   const data = await response.json();
   const cocktails = data.drinks;
