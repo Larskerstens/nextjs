@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Grid, Flex, Heading, Image } from "@chakra-ui/react";
+import { Grid, Flex, Heading, Image, List, ListItem } from "@chakra-ui/react";
 import { slugit, cap } from "../helpers";
 
 export default function pokedex({ pokemons }) {
@@ -10,7 +10,7 @@ export default function pokedex({ pokemons }) {
         <title>Pokédex pagina</title>
       </Head>
       <Heading as='h1'>Pokédex</Heading>
-      <ul>
+      <List>
         <Grid
           templateColumns={[
             "repeat(1, 1fr)",
@@ -34,16 +34,20 @@ export default function pokedex({ pokemons }) {
                         alt={pokemon.name}
                       />
                     </figure>
-                    <li key={index + 1} id={index + 1}>
+                    <ListItem
+                      key={index + 1}
+                      id={index + 1}
+                      fontSize={["sm", "md", "lg", "xl"]}
+                    >
                       {index + 1}. {cap(pokemon.name)}
-                    </li>
+                    </ListItem>
                   </Flex>
                 </a>
               </Link>
             </>
           ))}
         </Grid>
-      </ul>
+      </List>
     </>
   );
 }

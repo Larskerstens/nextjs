@@ -10,29 +10,29 @@ export default function pokemonDetail({ pokemon }) {
       <Head>
         <title>{pokemon.name} pagina</title>
       </Head>
-      <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Heading padding=".5em">{cap(pokemon.name)}</Heading>
+      <Flex justifyContent='center' alignItems='center' flexDirection='column'>
+        <Heading padding='.5em'>{cap(pokemon.name)}</Heading>
         <p>Number: {pokemon.id}</p>
         <img
-          className="pokeImg"
+          className='pokeImg'
           src={pokemon.sprites.other.dream_world.front_default}
           alt={pokemon.name}
         />
-        <p>Type: {pokemon.types.map((n) => n.type.name).join(", ")}</p>
+        <p>Type: {pokemon.types.map((n) => cap(n.type.name)).join(", ")}</p>
         <p>Weight: {pokemon.weight}</p>
         <p>Height: {pokemon.height}</p>
         <Link href={"../pokedex#" + (Number(pokemon.id) - 9)}>
           <Flex
-            justifyContent="space-between"
-            alignItems="center"
-            alignContent="center"
-            marginTop="3em"
-            border="1px solid #a53333"
-            padding=".5em .8em"
-            borderRadius="10px"
+            justifyContent='space-between'
+            alignItems='center'
+            alignContent='center'
+            marginTop='3em'
+            border='1px solid #a53333'
+            padding='.5em .8em'
+            borderRadius='10px'
           >
             <a>
-              <ArrowBackIcon marginRight="1em" />
+              <ArrowBackIcon marginRight='1em' />
               Terug naar Pokédex overzicht
             </a>
           </Flex>
@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=900"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=900",
   );
   const data = await response.json();
   const pokemons = data.results;
