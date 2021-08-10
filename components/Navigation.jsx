@@ -14,8 +14,8 @@ function navigation() {
  
   return (
     <>
-      <Box display={["none", "none", "none", "block"]}>
-        <HStack bgColor='#a53333' justifyContent='space-evenly'>
+      <Box display={["none", "none", "none", "block"]} className="stickynav">
+        <HStack bgColor='#a53333' justifyContent='space-evenly' fontSize="18px">
           <Menu>
             <Link href='/' passHref>
               <MenuButton
@@ -266,12 +266,15 @@ function navigation() {
               </MenuButton>
             </Link>
           </Menu>
+          
         </HStack>
       </Box>
       <Box
         textAlign='end'
         background='#a53333'
         display={["block", "block", "block", "none"]}
+        position="sticky"
+          top="0"
       >
         <MobileNav />
       </Box>

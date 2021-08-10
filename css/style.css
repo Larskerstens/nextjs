@@ -30,6 +30,11 @@ li {
   padding: 1em;
 }
 
+.stickynav {
+  position: sticky !important;
+  top: 0;
+}
+
 /*------------------ pokedex ----------------- */
 .pokemonName,
 .cocktailName,

@@ -2,13 +2,33 @@ import Head from "next/head";
 import Link from "next/link";
 import { Grid, Flex, Heading, Skeleton, Image } from "@chakra-ui/react";
 import { slugit } from "../helpers";
+import React from "react";
+
+import { useState } from "react";
 
 export default function movie({ movies }) {
+  const [value, setValue] = useState("");
+
   return (
     <>
       <Head>
         <title>Movies pagina</title>
       </Head>
+
+      <Heading as='h2'>Zoeken naar film</Heading>
+
+      <input
+        id='enter'
+        type='text'
+        value={value}
+        onInput={(e) => setValue(e.target.value)}
+      />
+      <Link href={`/zoek/${value}`}>
+        <a type='submit' id='button'>
+          Zoek
+        </a>
+      </Link>
+
       <Heading as='h1'>Movies</Heading>
 
       <ul>
